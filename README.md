@@ -26,8 +26,6 @@ php artisan serve
 
 Sign in at `/cp` as `admin@example.com` with the password `password`. `demo:users` refuses to run unless `APP_ENV=local`, since its password is known.
 
-Until Forms Captcha is on Packagist, `composer.json` installs it from `../forms-captcha-statamic`, so clone [the addon](https://github.com/1994limited/forms-captcha-statamic) next to this folder first.
-
 ## Trying it
 
 - **Send a form.** The test keys always pass, so every form goes through. Submissions are under **Forms** in the Control Panel, with no trace of the captcha in them.
