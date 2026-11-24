@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="{{ site:short_locale }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title ?? site:name }}</title>
+    {{ partial:styles }}
+</head>
+<body>
+    {{ partial:header }}
+    <main>{{ template_content }}</main>
+    {{ partial:footer }}
+</body>
+</html>

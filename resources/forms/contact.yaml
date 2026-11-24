@@ -1,0 +1,47 @@
+title: 'Contact the shop'
+fields:
+  pages:
+    -
+      id: main
+      sections:
+        -
+          fields:
+            -
+              handle: name
+              field:
+                type: name
+                display: 'Your name'
+                validate:
+                  - required
+            -
+              handle: email
+              field:
+                type: email
+                display: 'Email address'
+                validate:
+                  - required
+            -
+              handle: topic
+              field:
+                type: dropdown
+                display: 'What is it about?'
+                options:
+                  orders: 'An order'
+                  'special-orders': 'Ordering a book we don''t stock'
+                  events: 'Events and readings'
+                  other: 'Something else'
+            -
+              handle: enquiry
+              field:
+                type: long_answer
+                display: 'Your message'
+                validate:
+                  - required
+            -
+              handle: captcha
+              field:
+                type: captcha
+                display: 'Are you a person?'
+                theme: light
+honeypot: winnie
+store: true

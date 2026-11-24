@@ -1,0 +1,18 @@
+<h1>Dog-ear Books</h1>
+{{ content }}
+
+<p>Every form here has a Captcha field, each shown a different way:</p>
+<ul>
+    <li><a href="/contact">Contact</a>: drawn by Statamic, with <code>{{ "{{" }} fields {{ "}}" }}</code>.</li>
+    <li><a href="/ask-a-bookseller">Ask a bookseller</a>: a hand-written template, with <code>{{ "{{" }} forms_captcha {{ "}}" }}</code>.</li>
+    <li>The newsletter, at the bottom of every page: sent with <code>fetch()</code>.</li>
+    <li><a href="/contact-blade">Contact in Blade</a>: <code>&lt;s:forms_captcha :fields="$fields" /&gt;</code>.</li>
+</ul>
+<p class="note">The captcha uses Cloudflare Turnstile's test keys, so it always passes. Change <code>FORMS_CAPTCHA_SECRET_KEY</code> in <code>.env</code> to Turnstile's always-fail key to see submissions refused.</p>
+
+<h2>New in</h2>
+<div class="grid">
+    {{ collection:books limit="8" }}
+        <a href="{{ url }}">{{ cover_image }}<img src="{{ glide:url width='360' }}" alt="">{{ /cover_image }}<p>{{ title }}</p></a>
+    {{ /collection:books }}
+</div>

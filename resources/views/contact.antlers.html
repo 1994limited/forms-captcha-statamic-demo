@@ -1,0 +1,22 @@
+<h1>{{ title }}</h1>
+{{ content }}
+
+{{# Statamic draws every field, the Captcha field included. #}}
+{{ form:contact class="form" }}
+    {{ if success }}
+        <p class="success" role="status">Thanks: we'll write back within a couple of days.</p>
+    {{ else }}
+        {{ fields }}
+            {{ if is_informative }}
+                {{ field }}
+            {{ else }}
+                <div class="field">
+                    <label for="{{ id }}">{{ display }}</label>
+                    {{ field }}
+                    {{ if error }}<p class="error" id="{{ id }}-error">{{ error }}</p>{{ /if }}
+                </div>
+            {{ /if }}
+        {{ /fields }}
+        <button class="button">Send</button>
+    {{ /if }}
+{{ /form:contact }}

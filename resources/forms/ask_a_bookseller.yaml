@@ -1,0 +1,42 @@
+title: 'Ask a bookseller'
+fields:
+  pages:
+    -
+      id: main
+      sections:
+        -
+          fields:
+            -
+              handle: name
+              field:
+                type: short_answer
+                display: 'Your name'
+                validate:
+                  - required
+            -
+              handle: email
+              field:
+                type: email
+                display: 'Email address'
+                validate:
+                  - required
+            -
+              handle: liked
+              field:
+                type: short_answer
+                display: 'A book you loved'
+            -
+              handle: question
+              field:
+                type: long_answer
+                display: 'What are you looking for?'
+                validate:
+                  - required
+            -
+              handle: captcha
+              field:
+                type: captcha
+                display: 'Are you a person?'
+                theme: light
+honeypot: winnie
+store: true

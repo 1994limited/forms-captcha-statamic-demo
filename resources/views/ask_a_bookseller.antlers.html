@@ -1,0 +1,31 @@
+<h1>{{ title }}</h1>
+{{ content }}
+
+{{# A hand-written form. {{ forms_captcha }} places the widget, with its own error message. #}}
+{{ form:ask_a_bookseller class="form" }}
+    {{ if success }}
+        <p class="success" role="status">Thanks: a bookseller will write back with a suggestion.</p>
+    {{ else }}
+        <div class="field">
+            <label for="ask-name">Your name</label>
+            <input id="ask-name" name="name" value="{{ old:name }}" required>
+            {{ if error:name }}<p class="error">{{ error:name }}</p>{{ /if }}
+        </div>
+        <div class="field">
+            <label for="ask-email">Email address</label>
+            <input id="ask-email" type="email" name="email" value="{{ old:email }}" required>
+            {{ if error:email }}<p class="error">{{ error:email }}</p>{{ /if }}
+        </div>
+        <div class="field">
+            <label for="ask-liked">A book you loved</label>
+            <input id="ask-liked" name="liked" value="{{ old:liked }}">
+        </div>
+        <div class="field">
+            <label for="ask-question">What are you looking for?</label>
+            <textarea id="ask-question" name="question" required>{{ old:question }}</textarea>
+            {{ if error:question }}<p class="error">{{ error:question }}</p>{{ /if }}
+        </div>
+        {{ forms_captcha }}
+        <button class="button">Ask</button>
+    {{ /if }}
+{{ /form:ask_a_bookseller }}

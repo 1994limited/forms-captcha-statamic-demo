@@ -1,0 +1,25 @@
+title: 'Newsletter'
+fields:
+  pages:
+    -
+      id: main
+      sections:
+        -
+          fields:
+            -
+              handle: email
+              field:
+                type: email
+                display: 'Email address'
+                placeholder: 'you@example.com'
+                validate:
+                  - required
+            -
+              handle: captcha
+              field:
+                type: captcha
+                display: 'Are you a person?'
+                theme: light
+                size: flexible
+honeypot: winnie
+store: true

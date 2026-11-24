@@ -1,0 +1,33 @@
+<footer>
+    <div>
+        <p>© {{ now format="Y" }} Dog-ear Books, a made-up shop.</p>
+        <p class="note">A demo of <a href="https://github.com/1994limited/forms-captcha-statamic">Forms Captcha for Statamic</a>. Also try <a href="/contact-blade">the contact form in Blade</a>.</p>
+    </div>
+
+    {{# Sent with fetch(): the error comes back as JSON, and Forms Captcha resets the widget for the next try. #}}
+    {{ form:newsletter id="newsletter" class="form" }}
+        <label for="newsletter-email"><strong>The newsletter</strong>: new books, once a month.</label>
+        <div class="newsletter-row">
+            <input id="newsletter-email" type="email" name="email" placeholder="you@example.com" required>
+            <button class="button">Sign up</button>
+        </div>
+        {{ forms_captcha }}
+        <p id="newsletter-result" role="status"></p>
+    {{ /form:newsletter }}
+    <script>
+        document.getElementById('newsletter').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const form = event.target;
+            const result = document.getElementById('newsletter-result');
+            const response = await fetch(form.action, {
+                method: 'POST',
+                headers: { 'X-Requested-With': 'XMLHttpRequest', 'Accept': 'application/json' },
+                body: new FormData(form),
+            });
+            const json = await response.json();
+            result.className = response.ok ? 'success' : 'forms-captcha-error';
+            result.textContent = response.ok ? 'Thanks, you\'re signed up.' : Object.values(json.error).join(' ');
+            if (response.ok) form.reset();
+        });
+    </script>
+</footer>
