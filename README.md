@@ -40,4 +40,4 @@ Multi-page forms need Statamic's Forms Pro, so the demo doesn't have one. [The a
 
 ## Licence
 
-The demo's code is for trying Forms Captcha. The books, covers and journal are made up for Dog-ear Books.
+The demo's code is [MIT licensed](LICENSE.md), like [Forms Captcha](https://github.com/1994limited/forms-captcha-statamic) itself. The books, covers and journal are made up for Dog-ear Books.
